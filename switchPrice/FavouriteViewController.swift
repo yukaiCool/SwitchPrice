@@ -31,7 +31,9 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //通知事件-撈玩遊戲價錢及圖片執行cell reloadData
         NotificationCenter.default.addObserver(self, selector: #selector(reloadList(notification:)), name: NSNotification.Name("FavouriteView") , object: nil)
+        //通知事件-重新撈遊戲價錢
         NotificationCenter.default.addObserver(self, selector: #selector(preLoad(notification:)), name: NSNotification.Name("ChangeCurrencyPreLoad") , object: nil)
 
         // Do any additional setup after loading the view.
@@ -63,6 +65,7 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
         self.favouriteTableView.tableFooterView = UIView()
         
     }
+    //通知事件-重新撈遊戲價錢
     @objc func preLoad(notification: NSNotification) {
         //讀取條啟動
         myIndicatorAction(isOpen: true)
@@ -79,6 +82,7 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         })
     }
+    //通知事件-撈玩遊戲價錢及圖片執行cell reloadData
     @objc func reloadList(notification: NSNotification) {
         countryPrice = HomeViewController.shared.countryPrice
         gameImageArray = HomeViewController.shared.gameImageArray

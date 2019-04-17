@@ -98,7 +98,7 @@ class HomeGameDetailViewController: UIViewController, UITableViewDelegate, UITab
             cell.country.text = prices[indexPath.row].country
             //無優惠價格
             let eshopPrice = prices[indexPath.row].eshopPrice
-            let appDefaultCurrency = HomeViewController.shared.appDefaultCurrency
+            let appDefaultCurrency = HomeViewController.shared.userDefaults.value(forKey: "appDefaultCurrency") as! String
             cell.price.text = "\(appDefaultCurrency) \(eshopPrice)"
             cell.price.textColor = UIColor.blue
             cell.discount.text = " "
