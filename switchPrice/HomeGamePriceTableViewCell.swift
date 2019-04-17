@@ -13,6 +13,7 @@ class HomeGamePriceTableViewCell: UITableViewCell {
     @IBOutlet weak var discount: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var country: UILabel!
+    @IBOutlet weak var countryImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

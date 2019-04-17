@@ -10,6 +10,7 @@ import UIKit
 
 struct Price {
     var country = String()
+    var countryEnName = String()
     var eshopPrice = Decimal()
     var salePrice = Decimal()
 }
@@ -95,7 +96,11 @@ class HomeGameDetailViewController: UIViewController, UITableViewDelegate, UITab
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "PriceCell", for: indexPath) as! HomeGamePriceTableViewCell
+            //國家名稱
             cell.country.text = prices[indexPath.row].country
+            //國家旗子圖片
+            let imageStr = prices[indexPath.row].countryEnName.lowercased() + ".png"
+            cell.countryImage.image = UIImage(named: imageStr)
             //無優惠價格
             let eshopPrice = prices[indexPath.row].eshopPrice
             let appDefaultCurrency = HomeViewController.shared.userDefaults.value(forKey: "appDefaultCurrency") as! String
@@ -124,7 +129,7 @@ class HomeGameDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         for price in countryPrice{
-            var priceData = Price(country: HomeViewController.shared.countries[price.key]!["cnName"]!, eshopPrice: 0.0, salePrice: 0.0)
+            var priceData = Price(country: HomeViewController.shared.countries[price.key]!["cnName"]!,countryEnName: HomeViewController.shared.countries[price.key]!["enName"]!, eshopPrice: 0.0, salePrice: 0.0)
             var eshopPrice = price.value["eshop_default_price"] as? Decimal
             if eshopPrice == nil{
                 eshopPrice = Decimal()
