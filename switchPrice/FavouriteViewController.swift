@@ -166,7 +166,8 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
                     //優惠起迄日期
                     if let saleDate = priceList["end_datetime"] as? String{
                         let date = HomeViewController.shared.dateOutput(date: saleDate)
-                        cell.saleDateLabel.text = date
+                        cell.saleDateLabel.textColor = UIColor.red
+                        cell.saleDateLabel.text = "EndDate:" + date
                     }
                 }else{
                     cell.countryLabel.text = "未販售"

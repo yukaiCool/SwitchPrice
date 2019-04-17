@@ -365,6 +365,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     if let countryData = countries[country]{
                         cell.countryLabel.text = countryOutput(country: countryData)
                     }
+                    //無優惠的價錢
                     let eshopAmount = priceList["eshop_default_price"] as? Decimal
                     if eshopAmount != nil {
                         cell.eshopPriceLabel.textColor = UIColor.blue
@@ -373,6 +374,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                             cell.eshopPriceLabel.text = "FREE"
                         }
                     }
+                    //有優惠的價錢
                     let saleAmount = priceList["sale_default_price"] as? Decimal
                     if saleAmount != nil && eshopAmount != nil{
                         //刪除線
@@ -381,6 +383,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         cell.eshopPriceLabel.attributedText = attributeString
                        
                     }
+                    //折扣
                     let eshopPrice = priceList["eshopPrice"] as? Double
                     let salePrice = priceList["salePrice"] as? Double
                     if eshopPrice != nil && salePrice != nil{
@@ -391,7 +394,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     //優惠起迄日期
                     if let saleDate = priceList["end_datetime"] as? String{
                         let date = dateOutput(date: saleDate)
-                        cell.saleDateLabel.text = date
+                        cell.saleDateLabel.textColor = UIColor.red
+                        cell.saleDateLabel.text = "EndDate:" + date
                     }
                 }else{
                     cell.countryLabel.text = "未販售"

@@ -76,7 +76,7 @@ class HomeGameDetailViewController: UIViewController, UITableViewDelegate, UITab
                 cell.gameExcerpt.text = " "
             }
             //遊戲優惠日期
-            cell.saleDate.text = "No offer"
+            cell.saleDate.text = ""
             let country = HomeViewController.shared.dictionaryMin(prices: countryPrice)
             if let countryData = countryPrice[country]{
                 if let startDate = countryData["start_datetime"] as? String{
