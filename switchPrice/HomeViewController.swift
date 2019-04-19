@@ -191,11 +191,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     //通知事件-貨幣更換重新讀取遊戲價錢
     @objc func reloadPrices(notification: NSNotification) {
-        
-        countryPrice = [String: [String: [String: Any]]]()
+        updateCountryPrice()
         DispatchQueue.main.async {
-            self.appDefaultCurrency = self.userDefaults.value(forKey: "appDefaultCurrency") as! String
-            self.preLoad(index: 0, count: 10, preLoadGames: self.gamesSel, viewName: "HomeView", exchangeRate: self.exchangeRateList)
+            self.HomeTableView.reloadData()
         }
         print("Reload prices finish.")
     }
@@ -516,6 +514,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     //cell回到第一筆資料
     @IBAction func backTop(_ sender: UIBarButtonItem) {
+        callBackTop()
+    }
+    func callBackTop(){
         let secon = 0
         let row = 0
         let index = IndexPath(row: row, section: secon)
@@ -599,6 +600,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         return roundedDefaultPrice
+    }
+    func updateCountryPrice(){
+        for price in countryPrice{
+            let gameCode = price.key
+            for data in price.value{
+                let country = data.key
+                let currency = countries[country]!["countryDollar"]
+                if let eshopPrice = data.value["eshopPrice"] as? Double{
+                    let defaultPrice = self.calculateCurrency(currency: currency!, price: eshopPrice, exchangeRateList: self.exchangeRateList)
+                    self.countryPrice[gameCode]![country]!["eshop_default_price"] = defaultPrice
+                }
+                if let salePrice = data.value["salePrice"] as? Double{
+                    let defaultPrice = self.calculateCurrency(currency: currency!, price: salePrice, exchangeRateList: self.exchangeRateList)
+                    self.countryPrice[gameCode]![country]!["sale_default_price"] = defaultPrice
+                }
+            }
+        }
     }
     //預載遊戲價錢及遊戲圖片
     func preLoad(index:Int, count: Int, preLoadGames: [GameListInfo], viewName: String, exchangeRate: [String:Any]){
