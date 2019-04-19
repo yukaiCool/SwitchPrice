@@ -43,33 +43,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //彙整US_GAME讀取資料到存入資料庫
                 if !DBManager.shared.isGameUSDatabase(){
                     DBManager.shared.loadGameUS()
-                    //彙整JP_GAME讀取資料到存入資料庫
-                    if !DBManager.shared.isGameJPDatabase(){
-                        DBManager.shared.createJPGameToDatabase()
-                        
-                    }
                 }
                 
                 //彙整EU_GAME讀取資料到存入資料庫
                 if !DBManager.shared.isGameEUDatabase(){
                     DBManager.shared.createEUGameToDatabase()
                 }
-                
+                //彙整JP_GAME讀取資料到存入資料庫
+                if !DBManager.shared.isGameJPDatabase(){
+                    DBManager.shared.createJPGameToDatabase()
+                    
+                }
                 
             }else{
                 //彙整US_GAME讀取資料到存入資料庫
                 if !DBManager.shared.isGameUSDatabase(){
                     DBManager.shared.loadGameUS()
-                    //彙整JP_GAME讀取資料到存入資料庫
-                    if !DBManager.shared.isGameJPDatabase(){
-                        DBManager.shared.createJPGameToDatabase()
-                        
-                    }
+                }else{
+                    DBManager.shared.isFinishUS = true
+                    NotificationCenter.default.post(name: Notification.Name("GET_DATA"), object: nil)
                 }
                 
                 //彙整EU_GAME讀取資料到存入資料庫
                 if !DBManager.shared.isGameEUDatabase(){
                     DBManager.shared.createEUGameToDatabase()
+                }else{
+                    DBManager.shared.isFinishEU = true
+                    NotificationCenter.default.post(name: Notification.Name("GET_DATA"), object: nil)
+                }
+                
+                //彙整JP_GAME讀取資料到存入資料庫
+                if !DBManager.shared.isGameJPDatabase(){
+                    DBManager.shared.createJPGameToDatabase()
+                }else{
+                    DBManager.shared.isFinishJP = true
+                    NotificationCenter.default.post(name: Notification.Name("GET_DATA"), object: nil)
                 }
                 
                 print("DB is created.")

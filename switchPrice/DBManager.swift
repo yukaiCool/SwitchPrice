@@ -394,12 +394,17 @@ class DBManager: NSObject, XMLParserDelegate {
                         
                         print("Failed to insert initial data into the database.")
                         print(database.lastError(), database.lastErrorMessage())
+                    }else{
+                        
+                        print("US_GAME: Database insert finish.")
+                        
                     }
                 }catch{
                     print(error.localizedDescription)
                 }
             }
-            
+            isFinishUS = true
+            NotificationCenter.default.post(name: Notification.Name("GET_DATA"), object: nil)
             database.close()
         }
         
@@ -434,6 +439,7 @@ class DBManager: NSObject, XMLParserDelegate {
             }else{
                 print("<=== HTTP Load Fail ===>")
                 print(error?.localizedDescription as Any)
+                completion(false)
             }
         })
         //啟動或重新啟動下載動作
@@ -550,12 +556,12 @@ class DBManager: NSObject, XMLParserDelegate {
             if result{
                 //存入資料庫(gameEUTable)
                 self.insertGameEUData(games: self.gameEUArray)
-                self.isFinishEU = true
                 print("EU_GAME: Database insert finish.")
-                NotificationCenter.default.post(name: Notification.Name("GET_DATA"), object: nil)
             }else{
                 print("EU_GAME: Datebase insert fail.")
             }
+            self.isFinishEU = true
+            NotificationCenter.default.post(name: Notification.Name("GET_DATA"), object: nil)
         })
     }
     //判斷EU GAME是否有資料
@@ -765,12 +771,13 @@ class DBManager: NSObject, XMLParserDelegate {
         loadURLGameJPData(completion: {(result) in
             if result{
                 self.insertGameJPData(games: self.gameJPArray)
-                self.isFinishJP = true
                 print("JP_GAME: Database insert finish.")
-                NotificationCenter.default.post(name: Notification.Name("GET_DATA"), object: nil)
+                
             }else{
                 print("JP_GAME: Datebase insert fail.")
             }
+            self.isFinishJP = true
+            NotificationCenter.default.post(name: Notification.Name("GET_DATA"), object: nil)
         })
     }
     //判斷JP GAME是否有資料
@@ -1197,6 +1204,22 @@ class DBManager: NSObject, XMLParserDelegate {
             print("Database opened fail.")
         }
         
+    }
+    //判斷GAME是否有資料
+    func isGameDatabase() -> Bool{
+        if openDatabase(){
+            let query = "select * from Game"
+            do{
+                let result = try database.executeQuery(query, values: nil)
+                if result.next(){
+                    return true
+                }
+            }catch{
+                print(error.localizedDescription)
+            }
+            database.close()
+        }
+        return false
     }
 
 }

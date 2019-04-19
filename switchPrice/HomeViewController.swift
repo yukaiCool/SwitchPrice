@@ -163,21 +163,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     //通知事件-首次安裝app執行，彙整資料庫
     @objc func loadGameList(notification: NSNotification) {
-        if DBManager.shared.isGameUSDatabase() && DBManager.shared.isGameEUDatabase() && DBManager.shared.isGameJPDatabase(){
-            DBManager.shared.spatoonUpdateData()
-            DBManager.shared.createGameList()
-            games = DBManager.shared.loadGameList()
-            gamesSel = games
-            //取得即時匯率
-            DBManager.shared.exchangeRateList(completion: {(result,rateList) in
-                if result{
-                    self.exchangeRateList = rateList
-                    self.preLoad(index: 0, count: 10, preLoadGames: self.gamesSel, viewName: "HomeView", exchangeRate: self.exchangeRateList)
-                }else{
-                    print("ExchangeRate load fail.")
-                }
-            })
-            print("Loading finish.")
+        if DBManager.shared.isFinishUS && DBManager.shared.isFinishEU && DBManager.shared.isFinishJP{
+            if DBManager.shared.isGameUSDatabase() && DBManager.shared.isGameJPDatabase() && DBManager.shared.isGameEUDatabase() && !DBManager.shared.isGameDatabase(){
+                DBManager.shared.spatoonUpdateData()
+                DBManager.shared.createGameList()
+                games = DBManager.shared.loadGameList()
+                gamesSel = games
+                //取得即時匯率
+                DBManager.shared.exchangeRateList(completion: {(result,rateList) in
+                    if result{
+                        self.exchangeRateList = rateList
+                        self.preLoad(index: 0, count: 10, preLoadGames: self.gamesSel, viewName: "HomeView", exchangeRate: self.exchangeRateList)
+                    }else{
+                        print("ExchangeRate load fail.")
+                    }
+                })
+                print("Loading finish.")
+            }else if DBManager.shared.isGameUSDatabase() && DBManager.shared.isGameJPDatabase() && DBManager.shared.isGameEUDatabase() && DBManager.shared.isGameDatabase(){
+                //讀取條stop
+                //myIndicatorAction(isOpen: false)
+                print("Database is finish.")
+            }else{
+                //讀取條stop
+                myIndicatorAction(isOpen: false)
+                let alert = UIAlertController(title: "Fail", message: "Data download failed,Please go to Setting->UpdateGameData", preferredStyle: .alert)
+                let actionOK = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(actionOK)
+                present(alert, animated: true, completion: nil)
+            }
+            
         }
     }
     //通知事件-重新讀取遊戲清單並且條停止讀取條
