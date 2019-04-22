@@ -26,7 +26,7 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as! SettingTableViewCell
         cell.settingTitleLabel.text = settingItemTitle[indexPath.row]
-        cell.settingDescriptionLabel.text = " "
+        //cell.settingDescriptionLabel.text = " "
         cell.settingImage.image = UIImage(named: settingItemImage[indexPath.row])
         return cell
     }

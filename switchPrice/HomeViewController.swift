@@ -107,7 +107,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         NotificationCenter.default.addObserver(self, selector: #selector(loadGames(notification:)), name: NSNotification.Name("RELOAD") , object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDatabase(notification:)), name: NSNotification.Name("ReloadDatabase") , object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadPrices(notification:)), name: NSNotification.Name("ReloadPrices") , object: nil)
-        if DBManager.shared.isGameUSDatabase() && DBManager.shared.isGameEUDatabase() && DBManager.shared.isGameJPDatabase(){
+        if DBManager.shared.isGameDatabase(){
             games = DBManager.shared.loadGameList()
             if games == nil{
                 DBManager.shared.createGameList()
@@ -122,8 +122,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             DBManager.shared.exchangeRateList(completion: {(result,rateList) in
                 if result{
                     self.exchangeRateList = rateList
-                    self.preLoad(index: 0, count: 10, preLoadGames: self.gamesSel, viewName: "HomeView", exchangeRate: self.exchangeRateList)
-                    
+                    DispatchQueue.main.async {
+                        self.preLoad(index: 0, count: 10, preLoadGames: self.gamesSel, viewName: "HomeView", exchangeRate: self.exchangeRateList)
+                    }
                 }else{
                     print("ExchangeRate load fail.")
                 }
@@ -349,6 +350,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             //預載後面二十筆資料
             
             if (indexPath.row-5)%10 == 0{
+                print("index = \(indexPath.row)")
                 DispatchQueue.main.async {
                     self.preLoad(index: indexPath.row+5, count: 10, preLoadGames: self.gamesSel, viewName: "HomeView", exchangeRate: self.exchangeRateList)
                 }

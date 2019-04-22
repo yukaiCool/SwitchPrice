@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		323D36B3225EDF5400933EE1 /* gameUS.txt in Resources */ = {isa = PBXBuildFile; fileRef = 323D36B2225EDF5300933EE1 /* gameUS.txt */; };
-		323D36B9225EECC300933EE1 /* love.png in Resources */ = {isa = PBXBuildFile; fileRef = 323D36B8225EECC300933EE1 /* love.png */; };
-		323D36BB225EEE2700933EE1 /* loved.png in Resources */ = {isa = PBXBuildFile; fileRef = 323D36BA225EEE2700933EE1 /* loved.png */; };
 		323D36BD225F196200933EE1 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323D36BC225F196200933EE1 /* FavouriteViewController.swift */; };
 		323D36BF225F1A2D00933EE1 /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323D36BE225F1A2D00933EE1 /* FavouriteTableViewCell.swift */; };
 		3246DA4E2264E60A0005BC4D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3246DA4D2264E60A0005BC4D /* SettingViewController.swift */; };
@@ -212,13 +210,19 @@
 		3260B7882253586F00D28DB8 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 3260B7872253586F00D28DB8 /* back.png */; };
 		3260B78A22535A2A00D28DB8 /* HomeGameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260B78922535A2A00D28DB8 /* HomeGameDetailViewController.swift */; };
 		3260B78C2253A7FE00D28DB8 /* HomeGameDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3260B78B2253A7FE00D28DB8 /* HomeGameDetailTableViewCell.swift */; };
+		32688B0E226B2DB90030AFB5 /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = 32688B0D226B2DB90030AFB5 /* top.png */; };
+		32688B10226D650F0030AFB5 /* favourite.png in Resources */ = {isa = PBXBuildFile; fileRef = 32688B0F226D650E0030AFB5 /* favourite.png */; };
+		32688B12226D665C0030AFB5 /* lovelove.png in Resources */ = {isa = PBXBuildFile; fileRef = 32688B11226D665C0030AFB5 /* lovelove.png */; };
+		32688B15226D6AFF0030AFB5 /* loved.png in Resources */ = {isa = PBXBuildFile; fileRef = 32688B13226D6AFF0030AFB5 /* loved.png */; };
+		32688B16226D6AFF0030AFB5 /* love.png in Resources */ = {isa = PBXBuildFile; fileRef = 32688B14226D6AFF0030AFB5 /* love.png */; };
+		32688B18226D74720030AFB5 /* currency.png in Resources */ = {isa = PBXBuildFile; fileRef = 32688B17226D74710030AFB5 /* currency.png */; };
+		32688B1A226DAA210030AFB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32688B19226DAA210030AFB5 /* LaunchScreen.storyboard */; };
 		329C2D6E2250906A003C643C /* gameJP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C2D6D2250906A003C643C /* gameJP.swift */; };
 		32B5E3D52254FCBF00353050 /* HomeGamePriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B5E3D42254FCBF00353050 /* HomeGamePriceTableViewCell.swift */; };
 		32E810942243838400CFF35A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E810932243838400CFF35A /* AppDelegate.swift */; };
 		32E810962243838400CFF35A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E810952243838400CFF35A /* HomeViewController.swift */; };
 		32E810992243838400CFF35A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E810972243838400CFF35A /* Main.storyboard */; };
 		32E8109B2243838600CFF35A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32E8109A2243838600CFF35A /* Assets.xcassets */; };
-		32E8109E2243838600CFF35A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E8109C2243838600CFF35A /* LaunchScreen.storyboard */; };
 		32E810AB2243847200CFF35A /* computer.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E810A62243847000CFF35A /* computer.png */; };
 		32E810AC2243847200CFF35A /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E810A72243847000CFF35A /* home.png */; };
 		32E810AD2243847200CFF35A /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E810A82243847100CFF35A /* picture.png */; };
@@ -231,15 +235,11 @@
 		32E810C12243880A00CFF35A /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E810BC2243880A00CFF35A /* FMDatabasePool.m */; };
 		32E810C32243892B00CFF35A /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E810C22243892B00CFF35A /* DBManager.swift */; };
 		32E810CF224753E700CFF35A /* country.txt in Resources */ = {isa = PBXBuildFile; fileRef = 32E810CE224753E700CFF35A /* country.txt */; };
-		32F4E37B2262350400CCA394 /* currency.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F4E37A2262350300CCA394 /* currency.png */; };
 		32F4E37D2262350C00CCA394 /* update.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F4E37C2262350C00CCA394 /* update.png */; };
-		32F4E37F22631B6200CCA394 /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F4E37E22631B6200CCA394 /* top.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		323D36B2225EDF5300933EE1 /* gameUS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gameUS.txt; sourceTree = "<group>"; };
-		323D36B8225EECC300933EE1 /* love.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = love.png; sourceTree = "<group>"; };
-		323D36BA225EEE2700933EE1 /* loved.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loved.png; sourceTree = "<group>"; };
 		323D36BC225F196200933EE1 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		323D36BE225F1A2D00933EE1 /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
 		3246DA4D2264E60A0005BC4D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -442,6 +442,13 @@
 		3260B7872253586F00D28DB8 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		3260B78922535A2A00D28DB8 /* HomeGameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGameDetailViewController.swift; sourceTree = "<group>"; };
 		3260B78B2253A7FE00D28DB8 /* HomeGameDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGameDetailTableViewCell.swift; sourceTree = "<group>"; };
+		32688B0D226B2DB90030AFB5 /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
+		32688B0F226D650E0030AFB5 /* favourite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favourite.png; sourceTree = "<group>"; };
+		32688B11226D665C0030AFB5 /* lovelove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lovelove.png; sourceTree = "<group>"; };
+		32688B13226D6AFF0030AFB5 /* loved.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loved.png; sourceTree = "<group>"; };
+		32688B14226D6AFF0030AFB5 /* love.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = love.png; sourceTree = "<group>"; };
+		32688B17226D74710030AFB5 /* currency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currency.png; sourceTree = "<group>"; };
+		32688B19226DAA210030AFB5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		329C2D6D2250906A003C643C /* gameJP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameJP.swift; sourceTree = "<group>"; };
 		32B5E3D42254FCBF00353050 /* HomeGamePriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGamePriceTableViewCell.swift; sourceTree = "<group>"; };
 		32E810902243838400CFF35A /* switchPrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = switchPrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -449,7 +456,6 @@
 		32E810952243838400CFF35A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		32E810982243838400CFF35A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32E8109A2243838600CFF35A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		32E8109D2243838600CFF35A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32E8109F2243838600CFF35A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32E810A62243847000CFF35A /* computer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = computer.png; sourceTree = "<group>"; };
 		32E810A72243847000CFF35A /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -470,9 +476,7 @@
 		32E810BC2243880A00CFF35A /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		32E810C22243892B00CFF35A /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		32E810CE224753E700CFF35A /* country.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = country.txt; sourceTree = "<group>"; };
-		32F4E37A2262350300CCA394 /* currency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currency.png; sourceTree = "<group>"; };
 		32F4E37C2262350C00CCA394 /* update.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = update.png; sourceTree = "<group>"; };
-		32F4E37E22631B6200CCA394 /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -709,8 +713,8 @@
 				3249CFC72249BB7800396694 /* HomeTableViewCell.swift */,
 				32E810972243838400CFF35A /* Main.storyboard */,
 				32E8109A2243838600CFF35A /* Assets.xcassets */,
-				32E8109C2243838600CFF35A /* LaunchScreen.storyboard */,
 				32E8109F2243838600CFF35A /* Info.plist */,
+				32688B19226DAA210030AFB5 /* LaunchScreen.storyboard */,
 				323D36B2225EDF5300933EE1 /* gameUS.txt */,
 				32E810C22243892B00CFF35A /* DBManager.swift */,
 				32E810CE224753E700CFF35A /* country.txt */,
@@ -739,12 +743,14 @@
 				32E810A72243847000CFF35A /* home.png */,
 				32E810A82243847100CFF35A /* picture.png */,
 				32F4E37C2262350C00CCA394 /* update.png */,
-				32F4E37A2262350300CCA394 /* currency.png */,
-				32F4E37E22631B6200CCA394 /* top.png */,
-				323D36B8225EECC300933EE1 /* love.png */,
+				32688B17226D74710030AFB5 /* currency.png */,
+				32688B14226D6AFF0030AFB5 /* love.png */,
+				32688B13226D6AFF0030AFB5 /* loved.png */,
+				32688B11226D665C0030AFB5 /* lovelove.png */,
+				32688B0D226B2DB90030AFB5 /* top.png */,
+				32688B0F226D650E0030AFB5 /* favourite.png */,
 				32E810A92243847100CFF35A /* setting.png */,
 				32E810AA2243847100CFF35A /* shopping.png */,
-				323D36BA225EEE2700933EE1 /* loved.png */,
 			);
 			path = pirture;
 			sourceTree = "<group>";
@@ -837,9 +843,7 @@
 				3246DB4D2265AC710005BC4D /* taiwan.png in Resources */,
 				3246DB2D2265AC700005BC4D /* kazakhstan.png in Resources */,
 				3246DBCA2265AC710005BC4D /* united states.png in Resources */,
-				32E8109E2243838600CFF35A /* LaunchScreen.storyboard in Resources */,
 				3246DBC52265AC710005BC4D /* malawi.png in Resources */,
-				32F4E37B2262350400CCA394 /* currency.png in Resources */,
 				3246DBBC2265AC710005BC4D /* peru.png in Resources */,
 				3246DB572265AC710005BC4D /* gibraltar.png in Resources */,
 				3246DB962265AC710005BC4D /* jarvis.png in Resources */,
@@ -886,6 +890,7 @@
 				3246DBC02265AC710005BC4D /* swaziland.png in Resources */,
 				3246DB482265AC710005BC4D /* islands solomon.png in Resources */,
 				3246DB952265AC710005BC4D /* nicaragua.png in Resources */,
+				32688B18226D74720030AFB5 /* currency.png in Resources */,
 				3246DBAB2265AC710005BC4D /* croatian.png in Resources */,
 				3246DB702265AC710005BC4D /* oman.png in Resources */,
 				3246DBC82265AC710005BC4D /* egypt.png in Resources */,
@@ -941,16 +946,17 @@
 				3246DB822265AC710005BC4D /* pakistan.png in Resources */,
 				3246DBD82265AC710005BC4D /* indonesia.png in Resources */,
 				3246DB9D2265AC710005BC4D /* russian federation.png in Resources */,
-				323D36B9225EECC300933EE1 /* love.png in Resources */,
 				32E810AE2243847200CFF35A /* setting.png in Resources */,
 				3246DB682265AC710005BC4D /* syria.png in Resources */,
 				32E8109B2243838600CFF35A /* Assets.xcassets in Resources */,
 				3246DBDE2265AC710005BC4D /* morocco.png in Resources */,
 				3246DBDD2265AC710005BC4D /* botswana.png in Resources */,
 				3246DB6E2265AC710005BC4D /* madagascar.png in Resources */,
+				32688B15226D6AFF0030AFB5 /* loved.png in Resources */,
 				3246DB2F2265AC700005BC4D /* helena saint.png in Resources */,
 				3246DBA92265AC710005BC4D /* south africa.png in Resources */,
 				3246DB912265AC710005BC4D /* latvia.png in Resources */,
+				32688B1A226DAA210030AFB5 /* LaunchScreen.storyboard in Resources */,
 				3246DB9A2265AC710005BC4D /* tuvalu.png in Resources */,
 				3246DB242265AC700005BC4D /* guatemala.png in Resources */,
 				3246DBCD2265AC710005BC4D /* malta.png in Resources */,
@@ -958,6 +964,7 @@
 				3246DBBF2265AC710005BC4D /* bahamas.png in Resources */,
 				3246DB6D2265AC710005BC4D /* grenada.png in Resources */,
 				3246DB5E2265AC710005BC4D /* macau.png in Resources */,
+				32688B16226D6AFF0030AFB5 /* love.png in Resources */,
 				3246DB282265AC700005BC4D /* hungary.png in Resources */,
 				3246DB6A2265AC710005BC4D /* montserrat.png in Resources */,
 				3246DB362265AC700005BC4D /* jamaica.png in Resources */,
@@ -976,6 +983,7 @@
 				32F4E37D2262350C00CCA394 /* update.png in Resources */,
 				3246DB782265AC710005BC4D /* micronesia.png in Resources */,
 				3246DBD62265AC710005BC4D /* slovakia.png in Resources */,
+				32688B12226D665C0030AFB5 /* lovelove.png in Resources */,
 				3246DB422265AC710005BC4D /* tajikistan.png in Resources */,
 				3246DBDA2265AC710005BC4D /* mexico.png in Resources */,
 				3246DB592265AC710005BC4D /* sweden.png in Resources */,
@@ -983,6 +991,7 @@
 				3246DBDC2265AC710005BC4D /* norway.png in Resources */,
 				3246DBB92265AC710005BC4D /* singapore.png in Resources */,
 				32E810992243838400CFF35A /* Main.storyboard in Resources */,
+				32688B10226D650F0030AFB5 /* favourite.png in Resources */,
 				3246DB462265AC710005BC4D /* greenland.png in Resources */,
 				3246DB5F2265AC710005BC4D /* mozambique.png in Resources */,
 				3246DB4C2265AC710005BC4D /* niue.png in Resources */,
@@ -991,7 +1000,6 @@
 				3246DB842265AC710005BC4D /* mauritania.png in Resources */,
 				3246DB942265AC710005BC4D /* turkmenistan.png in Resources */,
 				3246DBA32265AC710005BC4D /* burkina faso.png in Resources */,
-				32F4E37F22631B6200CCA394 /* top.png in Resources */,
 				3246DB612265AC710005BC4D /* greece.png in Resources */,
 				3246DBC42265AC710005BC4D /* vanuatu.png in Resources */,
 				3246DB232265AC700005BC4D /* kenya.png in Resources */,
@@ -1001,9 +1009,9 @@
 				3246DB272265AC700005BC4D /* ghana.png in Resources */,
 				3246DB452265AC710005BC4D /* futuna wallis.png in Resources */,
 				3246DBA22265AC710005BC4D /* mongolia.png in Resources */,
+				32688B0E226B2DB90030AFB5 /* top.png in Resources */,
 				3246DB532265AC710005BC4D /* nepal.png in Resources */,
 				3246DB322265AC700005BC4D /* isle man of.png in Resources */,
-				323D36BB225EEE2700933EE1 /* loved.png in Resources */,
 				3246DB812265AC710005BC4D /* tokelau.png in Resources */,
 				3246DB3D2265AC700005BC4D /* lesotho.png in Resources */,
 				3246DB762265AC710005BC4D /* centralafricanrepublic.png in Resources */,
@@ -1076,14 +1084,6 @@
 				32E810982243838400CFF35A /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		32E8109C2243838600CFF35A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				32E8109D2243838600CFF35A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -1208,7 +1208,7 @@ class DBManager: NSObject, XMLParserDelegate {
     //判斷GAME是否有資料
     func isGameDatabase() -> Bool{
         if openDatabase(){
-            let query = "select * from Game"
+            let query = "select * from \(field_Game_gameTable)"
             do{
                 let result = try database.executeQuery(query, values: nil)
                 if result.next(){
