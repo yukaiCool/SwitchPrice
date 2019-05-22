@@ -1218,7 +1218,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.pixnet.leechuhan.switchPrice;
+				PRODUCT_BUNDLE_IDENTIFIER = net.pixnet.leechuhan.switchPriceTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "switchPrice/FMDB/switchPrice-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1240,7 +1240,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.pixnet.leechuhan.switchPrice;
+				PRODUCT_BUNDLE_IDENTIFIER = net.pixnet.leechuhan.switchPriceTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "switchPrice/FMDB/switchPrice-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

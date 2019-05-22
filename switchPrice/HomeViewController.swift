@@ -351,7 +351,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if (indexPath.row-5)%10 == 0{
                 print("index = \(indexPath.row)")
-                DispatchQueue.main.async {
+                let dispathQueuePreLoad = DispatchQueue(label: "homeViewController.preload", qos: .userInitiated)
+                dispathQueuePreLoad.async {
                     self.preLoad(index: indexPath.row+5, count: 10, preLoadGames: self.gamesSel, viewName: "HomeView", exchangeRate: self.exchangeRateList)
                 }
             }
