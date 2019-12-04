@@ -33,6 +33,26 @@ class DBManager: NSObject, XMLParserDelegate {
     let field_gameUS_category = "category"
     let field_gameUS_players = "number_of_players"
     let field_gameUS_url = "id"
+    /** Options used for getting US gmaes  */
+    let US_GET_GAMES_OPTIONS = [ "system": "platform:Nintendo Switch", "sort": "title", "direction": "asc" ]
+
+    /** Algolia ID for getting US games */
+    let US_ALGOLIA_ID = "U3B6GR4UA3"
+
+    /** Algolia Key for getting US games */
+    let US_ALGOLIA_KEY = "9a20c93440cf63cf1a7008d75f7438bf"
+
+    /** URL for getting US Games */
+    let US_GET_GAMES_URL = "https://U3B6GR4UA3-dsn.algolia.net/1/indexes/*/queries"
+
+    /** Sample game code for US store */
+    let US_GAME_CHECK_CODE = "70010000000185"
+
+    /** Regex for US game codes */
+    //let const US_GAME_CODE_REGEX = /HAC\w(\w{4})/
+
+    /** Default limit for getting US games - Defaults to 200  */
+    let US_GAME_LIST_LIMIT = 200
     //EU
     let field_gameEU_nsuid_txt = "nsuid_txt"
     let field_gameEU_title = "title"
@@ -167,6 +187,57 @@ class DBManager: NSObject, XMLParserDelegate {
         return false
     }
     //-----------------------------------US-----------------------------------------------
+    func load(competion: @escaping(_ result: [String: Any]) -> Void){
+        //API
+        let url = URL(string: US_GET_GAMES_URL)
+        let message =
+            [
+                "indexName": "noa_aem_game_en_us",
+                "params":
+                    [
+                        "facetFilters":
+                            [
+                                "filterShops:On Nintendo.com",
+                                "platform:Nintendo Switch"
+                            ],
+                        "facets":
+                            [
+                                "generalFilters", "platform", "availability", "categories",
+                                "filterShops", "virtualConsole", "characters", "priceRange",
+                                "esrb", "filterPlayers"
+                            ],
+                        "hitsPerPage": US_GAME_LIST_LIMIT,
+                        "maxValuesPerFacet": 30,
+                        "page": 0
+                    ]
+            ] as [String : Any]
+        print(message)
+        let data = try! JSONSerialization.data(withJSONObject: message, options: .prettyPrinted)
+        var request = URLRequest(url: url!)
+        request.httpBody = data
+        request.addValue(US_ALGOLIA_KEY, forHTTPHeaderField: "X-Algolia-API-Key")
+        request.addValue(US_ALGOLIA_ID, forHTTPHeaderField: "X-Algolia-Application-Id")
+        request.addValue("application/json", forHTTPHeaderField: "content-type")
+        request.httpMethod = "POST"
+        //設定委任對象為自己
+        let session = URLSession.shared
+        //設定下載網址
+        let dataTask = session.dataTask(with: request){(data, response, error) in
+            if error == nil{
+                if let resultArray = try? (JSONSerialization.jsonObject(with: data!, options: .allowFragments)) as? [String:Any]{
+                    print(resultArray)
+                    competion([String:Any]())
+                }else{
+                    print("No resultArray...")
+                }
+            }else{
+                competion([String:Any]())
+                print("Error:\(String(describing: error))")
+            }
+        }
+        //啟動或重新啟動下載動作
+        dataTask.resume()
+    }
     //讀取遊戲清單總共有幾款遊戲
     func loadURLGameUSTotal(completion: @escaping (_ result: Bool) -> Void) {
         //美國switch遊戲資料庫URL

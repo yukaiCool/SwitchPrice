@@ -47,8 +47,14 @@ class HomeGameDetailViewController: UIViewController, UITableViewDelegate, UITab
                 cell.gameTitle.text = title
             }
             //遊戲圖片
-            cell.gameImage.image = UIImage(data: image)
-            //cell.gameCategory.text = "Category: " + game.category
+            var gameUrl = game.eu_gameImage
+            if gameUrl == "" {
+                gameUrl = game.jp_gameImage
+            }
+            if let url = URL(string: gameUrl ?? "") {
+                cell.gameImage.kf.indicatorType = .activity
+                cell.gameImage.kf.setImage(with: url)
+            }
             //遊戲支援語言
             cell.gameLanguage.text = ""
             if game.language != nil{

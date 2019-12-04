@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 struct GameListInfo : Equatable{
     var us_gameCode: String!
@@ -114,7 +115,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 games = DBManager.shared.loadGameList()
             }
             gamesSel = games
-        } 
+        }
         if games != nil{
             //取得遊戲收藏清單 to FavouriteTableViewController
             favouriteButtonUpdate()
@@ -131,6 +132,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             })
         }
         self.HomeTableView.tableFooterView = UIView()
+//        DBManager.shared.load { (_) in
+//            print("------------Load finish-----------")
+//        }
         
     }
     //通知事件-重新讀取資料庫若有新資料則更新表格
@@ -330,11 +334,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let row = self.HomeTableView?.indexPathForSelectedRow?.row{
                 homeGameDetailViewController?.game = gamesSel[row]
                 homeGameDetailViewController?.countryPrice = countryPrice[getGameCode(game: gamesSel[row])]!
-                homeGameDetailViewController?.image = gameImageArray[getGameCode(game: gamesSel[row])]!
+                //homeGameDetailViewController?.image = gameImageArray[getGameCode(game: gamesSel[row])]!
             }
         }
         
     }
+    // MARK: - Table View Datasource
     //Cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if games == nil{
@@ -346,7 +351,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as! HomeTableViewCell
         if gamesSel != nil{
-            
+            let game = gamesSel[indexPath.row]
             //預載後面二十筆資料
             
             if (indexPath.row-5)%10 == 0{
@@ -422,11 +427,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.releaseDateLabel.text = releaseDate
             
             //遊戲圖片
-            cell.gameImage.image = UIImage(contentsOfFile: "home.png")
-            if let data = gameImageArray[getGameCode(game: gamesSel[indexPath.row])]{
-                cell.gameImage.image = UIImage(data: data)
+            var gameUrl = game.eu_gameImage
+            if gameUrl == "" {
+                gameUrl = game.jp_gameImage
             }
-            
+            if let url = URL(string: gameUrl ?? "") {
+                cell.gameImage.kf.indicatorType = .activity
+                cell.gameImage.kf.setImage(with: url)
+            }
         }
         
         
@@ -657,13 +665,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     print(i)
                     let gameCode = getGameCode(game: preLoadGames[i])
                     //透過url下載遊戲圖片
-                    do{
-                        let url = URL(string: getGameImage(game: preLoadGames[i]))
-                        let data = try Data(contentsOf: url!)
-                        gameImageArray[gameCode] = data
-                    }catch{
-                        print(error.localizedDescription)
-                    }
+//                    do{
+//                        let url = URL(string: getGameImage(game: preLoadGames[i]))
+//                        let data = try Data(contentsOf: url!)
+//                        gameImageArray[gameCode] = data
+//                    }catch{
+//                        print(error.localizedDescription)
+//                    }
                     
                     //預載的價錢清單初始化
                     countryPrice[gameCode] = [String: [String: Double]]()
